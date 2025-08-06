@@ -2,13 +2,6 @@
 
 *Hello everybody! I'm looking for more people that can bring this package to the next level. If you'd like to help you can contact me via the email. I'll be happy for every news contribution!*
 
-## How to install it?
-
-It is very easy! On the machine with ROS installed, just run
-```bash
-pip install kitti2bag
-```
-
 ## How to run it?
 
 One example is better then thousand words so here it is
