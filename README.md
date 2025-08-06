@@ -66,19 +66,3 @@ If you got an error saying something like _command not found_ it means that your
 ```python -m kitti2bag -t 2011_09_26 -r 0002 raw_synced .```
 Or maybe use Docker.
 
-### Prefer Docker?
-
-That is easy too. There is a pre-built image `tomas789/kitti2bag`. 
-
-```bash
-$ wget https://s3.eu-central-1.amazonaws.com/avg-kitti/raw_data/2011_09_26_drive_0002/2011_09_26_drive_0002_sync.zip
-$ wget https://s3.eu-central-1.amazonaws.com/avg-kitti/raw_data/2011_09_26_calib.zip
-$ unzip 2011_09_26_drive_0002_sync.zip
-$ unzip 2011_09_26_calib.zip
-$ docker run -v `pwd`:/data -it tomas789/kitti2bag -t 2011_09_26 -r 0002 raw_synced
-Exporting static transformations
-Exporting time dependent transformations
-...
-```
-
-This might also be a better alternative if you are having troubles installing the package. 
