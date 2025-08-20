@@ -1,0 +1,40 @@
+name: Auto-format Python
+on:
+  pull_request:
+jobs:
+  auto_format:
+    name: Auto-format Python
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Install format tools
+        run: |
+          sudo apt update
+          sudo apt install -y libxml2-utils
+          pip install black isort autoflake
+      - name: Run autoflake
+        run: |
+          find . -type f -name "*.py" -exec autoflake --in-place --remove-unused-variables --remove-all-unused-imports {} \;
+      - name: Run isort
+        run: |
+          find . -type f -name "*.py" -exec isort {} \;
+      - name: Run black
+        run: |
+          black .
+      - name: Auto-commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Apply formatting to PR files"
+          commit_user_name: github-actions[bot]
+          commit_user_email: github-actions[bot]@users.noreply.github.com
+
+          
