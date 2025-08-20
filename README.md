@@ -1,4 +1,4 @@
-# kitti2bag - KITTI Dataset to ROS2 Bag Converter
+# KITTI Dataset to ROS2 Bag Converter
 
 A powerful Python tool to convert [KITTI datasets](http://www.cvlibs.net/datasets/kitti/) into ROS2 bag files, making autonomous driving research data easily accessible for ROS2-based robotics applications.
 
